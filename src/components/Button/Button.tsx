@@ -1,10 +1,98 @@
-type ButtonProps = {
-    backgroundColor: string;
-    children: React.ReactNode;
-};
+import styled from "styled-components";
+import type {
+  ButtonType,
+  Sizes,
+  ButtonProps,
+  ButtonConfiguration,
+} from "./types/ButtonTypes";
 
-export default function Button({ children }: ButtonProps) {
-    return (
-        <button className={`cursor-pointer border-2 px-4`}>{children}</button>
-    )
+const StyledButton = styled.button<{
+  $textColor?: string;
+  $fontSize?: Sizes;
+  $type: ButtonType;
+  $config: ButtonConfiguration;
+  $size: Sizes;
+}>`
+  padding: 0.5rem 1rem;
+  width: ${(props) => props.$config.sizes[props.$size].width};
+  height: ${(props) => props.$config.sizes[props.$size].height};
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: ${(props) => props.$config.colors[props.$type]};
+  color: ${(props) => props.$textColor};
+  font-size: ${(props) => {
+    switch (props.$fontSize) {
+      case "sm":
+        return "0.875rem";
+      case "md":
+        return "1rem";
+      case "lg":
+        return "1.25rem";
+      default:
+        return "1rem";
+    }
+  }};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    filter: brightness(0.9);
+  }
+`;
+
+export default function Button({
+  children,
+  type = "primary",
+  size = "md",
+  fontSize = "md",
+  textColor = "#fff",
+  onClick,
+  config,
+}: ButtonProps) {
+  if (config === undefined) {
+    config = {
+      colors: {
+        primary: "blue",
+        secondary: "gray",
+        warning: "yellow",
+        danger: "red",
+      },
+      sizes: {
+        sm: {width: "100px", height: "40px"},
+        md: {width: "150px", height: "50px"},
+        lg: {width: "200px", height: "60px"},
+      },
+    };
+  }
+
+  if (!config.colors) {
+    config.colors = {
+      primary: "blue",
+      secondary: "gray",
+      warning: "yellow",
+      danger: "red",
+    };
+  }
+
+  if (!config.sizes) {
+    config.sizes = {
+      sm: {width: "100px", height: "40px"},
+      md: {width: "150px", height: "50px"},
+      lg: {width: "200px", height: "60px"},
+    };
+  }
+
+  return (
+    <StyledButton
+      $type={type}
+      $size={size}
+      $fontSize={fontSize}
+      $textColor={textColor}
+      $config={config}
+      onClick={onClick}
+    >
+      {children}
+    </StyledButton>
+  );
 }
