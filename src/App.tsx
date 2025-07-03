@@ -28,14 +28,14 @@ const FlexBox = styled.div<{ $direction?: "row" | "column"; $gap?: number }>`
 function App() {
   // Handle button click
   const handleClick = (e: React.MouseEvent) => {
-    alert(`clicked ${(e.target as HTMLElement).innerText}`);
+    console.log(`clicked ${(e.target as HTMLElement).innerText}`);
   };
 
   return (
     <FlexBox $direction="row" $gap={2}>
       <h2 style={{ textAlign: "center", width: "100%" }}>Buttons</h2>
-      <Button type="primary" size="lg" fontSize="lg" radius="2rem" onClick={handleClick} config={myConfig}>
-        Enter
+      <Button type="primary" size="md" onClick={handleClick} config={myConfig}>
+        Primary
       </Button>
     </FlexBox>
   );
