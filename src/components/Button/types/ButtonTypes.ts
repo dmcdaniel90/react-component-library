@@ -9,9 +9,9 @@ type colorConfiguration = {
 };
 
 type sizeConfiguration = {
-  sm: { width: string; height: string; };
-  md: { width: string; height: string; };
-  lg: { width: string; height: string; };
+  sm: {width: string; height: string};
+  md: {width: string; height: string};
+  lg: {width: string; height: string};
 };
 
 type ButtonProps = {

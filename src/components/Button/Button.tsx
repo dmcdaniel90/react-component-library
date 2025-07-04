@@ -49,7 +49,7 @@ export default function Button({
   fontSize = "md",
   radius = "0.5rem",
   textColor = "#fff",
-  onClick = () => { },
+  onClick = () => {},
   config,
 }: ButtonProps) {
   if (config === undefined) {
@@ -61,9 +61,9 @@ export default function Button({
         danger: "red",
       },
       sizes: {
-        sm: { width: "100px", height: "40px" },
-        md: { width: "150px", height: "50px" },
-        lg: { width: "200px", height: "60px" },
+        sm: {width: "100px", height: "40px"},
+        md: {width: "150px", height: "50px"},
+        lg: {width: "200px", height: "60px"},
       },
     };
   }
@@ -79,9 +79,9 @@ export default function Button({
 
   if (!config.sizes) {
     config.sizes = {
-      sm: { width: "100px", height: "40px" },
-      md: { width: "150px", height: "50px" },
-      lg: { width: "200px", height: "60px" },
+      sm: {width: "100px", height: "40px"},
+      md: {width: "150px", height: "50px"},
+      lg: {width: "200px", height: "60px"},
     };
   }
 

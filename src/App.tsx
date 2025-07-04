@@ -1,6 +1,6 @@
-import { styled } from "styled-components";
+import {styled} from "styled-components";
 import Button from "./components/Button/Button";
-import type { ButtonConfiguration } from "./components/Button/types/ButtonTypes";
+import type {ButtonConfiguration} from "./components/Button/types/ButtonTypes";
 
 const myConfig: ButtonConfiguration = {
   colors: {
@@ -10,14 +10,14 @@ const myConfig: ButtonConfiguration = {
     danger: "hsl(0, 88%, 64%)",
   },
   sizes: {
-    sm: { width: "100px", height: "40px" },
-    md: { width: "150px", height: "50px" },
-    lg: { width: "200px", height: "60px" },
+    sm: {width: "100px", height: "40px"},
+    md: {width: "150px", height: "50px"},
+    lg: {width: "200px", height: "60px"},
   },
 };
 
 // Flexbox component for layout, using styled-components
-const FlexBox = styled.div<{ $direction?: "row" | "column"; $gap?: number }>`
+const FlexBox = styled.div<{$direction?: "row" | "column"; $gap?: number}>`
   display: flex;
   flex-direction: ${(props) => props.$direction || "row"};
   justify-content: center;
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <FlexBox $direction="row" $gap={2}>
-      <h2 style={{ textAlign: "center", width: "100%" }}>Buttons</h2>
+      <h2 style={{textAlign: "center", width: "100%"}}>Buttons</h2>
       <Button type="primary" size="md" onClick={handleClick} config={myConfig}>
         Primary
       </Button>
