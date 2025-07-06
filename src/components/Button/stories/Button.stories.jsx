@@ -17,7 +17,7 @@ export const Primary = {
         children: 'Primary',
         config: {
             colors: {
-                primary: "#1e51d1ff",
+                primary: "#1ed1b6ff",
                 secondary: "#6C757D",
                 warning: "#6C757D",
                 danger: "#DC3545",
