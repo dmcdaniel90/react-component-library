@@ -1,0 +1,15 @@
+name: Chromatic Deployment
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    chromatic-deployment:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install dependencies
+              run: npm install
+            - name: Run Chromatic
+              run: npx chromatic --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
