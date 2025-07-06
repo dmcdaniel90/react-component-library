@@ -14,4 +14,4 @@ jobs:
             - name: Install dependencies
               run: npm install
             - name: Run Chromatic
-              run: npx chromatic --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+              run: npx chromatic --projesct-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
