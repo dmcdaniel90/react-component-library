@@ -55,10 +55,10 @@ export default function Button({
   if (config === undefined) {
     config = {
       colors: {
-        primary: "blue",
-        secondary: "gray",
-        warning: "yellow",
-        danger: "red",
+        primary: "#1e75d1ff",
+        secondary: "#6C757D",
+        warning: "#FFC107",
+        danger: "#DC3545",
       },
       sizes: {
         sm: {width: "100px", height: "40px"},
@@ -71,7 +71,7 @@ export default function Button({
   if (!config.colors) {
     config.colors = {
       primary: "blue",
-      secondary: "gray",
+      secondary: "darkgray",
       warning: "yellow",
       danger: "red",
     };
